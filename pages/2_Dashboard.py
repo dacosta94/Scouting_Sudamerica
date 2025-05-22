@@ -95,7 +95,7 @@ if categoria == "Resumen":
         df_categoria[columnas_resumen]
         .sort_values("Minutos jugados", ascending=False)
         .style
-        .background_gradient(subset=["indice_ofensivo", "indice_creacion", "indice_defensivo"], cmap="Greens")
+        .background_gradient(subset=["indice_ofensivo", "indice_creacion", "indice_defensivo"])
         .format({col: "{:.1f}" for col in columnas_resumen if df_categoria[col].dtype in ["float64", "float32"]})
         .set_properties(**{"text-align": "center"})
         .set_table_styles([
