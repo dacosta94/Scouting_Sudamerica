@@ -146,7 +146,7 @@ if categoria != "Resumen" and columnas:
             .sort_values(indice_columna, ascending=False)
             #.head(200)
             .style
-            #.background_gradient(subset=[indice_columna], cmap="Greens")
+            #.background_gradient(subset=[indice_columna], cmap="Reds")
             .format({col: "{:.1f}" for col in columnas_validas if df_categoria[col].dtype in ["float64", "float32"]})
         )
     else:
