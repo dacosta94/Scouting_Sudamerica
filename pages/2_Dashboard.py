@@ -109,16 +109,16 @@ if categoria == "Resumen":
 elif categoria == "Ofensivo":
     st.markdown(f"### 🎯 Métricas ofensivas ({tipo_seleccionado})")
     metricas_ofensivas = {
-        "Total": ["Jugador", "Club", "indice_ofensivo", "Goles", "Asistencias", "Remates", "Regates ganados", "Toques en el área de penalti"],
-        "Por 90 minutos": ["Jugador", "Club", "indice_ofensivo", "Goles/90", "Asistencias/90", "Remates/90", "Regates ganados/90", "Toques en el área de penalti/90"]
+        "Total": ["Jugador", "Club", "indice_ofensivo", "Goles", "Asistencias", "Remates", "Regates ganados", "Toques en el área de penalti", "Acciones de ataque exitosas"],
+        "Por 90 minutos": ["Jugador", "Club", "indice_ofensivo", "Goles/90", "Asistencias/90", "Remates/90", "Regates ganados/90", "Toques en el área de penalti/90", "Acciones de ataque exitosas/90"]
     }
     columnas = metricas_ofensivas.get(tipo_seleccionado, [])
 
 elif categoria == "Creacion":
     st.markdown(f"### 🧠 Métricas de creacion ({tipo_seleccionado})")
     metricas_creacion = {
-        "Total": ["Jugador", "Club", "indice_creacion", "Centros", "Centros al área pequeña", "Pases en el último tercio ganados", "Pases al área de penalti", "Pases en profundidad", "Jugadas claves"],
-        "Por 90 minutos": ["Jugador", "Club", "indice_creacion", "Centros/90", "Centros al área pequeña/90", "Pases en el último tercio ganados/90", "Pases al área de penalti/90", "Pases en profundidad/90", "Jugadas claves/90"]
+        "Total": ["Jugador", "Club", "indice_creacion", "xA", "Centros", "Pases progresivos ganados", "Pases en el último tercio ganados", "Pases al área de penalti", "Pases en profundidad", "Jugadas claves"],
+        "Por 90 minutos": ["Jugador", "Club", "indice_creacion", "xA/90", "Centros/90", "Pases progresivos ganados/90", "Pases en el último tercio ganados/90", "Pases al área de penalti/90", "Pases en profundidad/90", "Jugadas claves/90"]
     }
     columnas = metricas_creacion.get(tipo_seleccionado, [])
 
