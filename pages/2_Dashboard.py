@@ -1,25 +1,27 @@
 import streamlit as st
 import pandas as pd
-
-st.set_page_config(page_title="Dashboard", layout="wide")
-st.title("📊 Dashboard de jugadores")
+import os
 
 # 📥 Carga de archivo - FUERA del sidebar
 st.markdown("### 📂 Cargar archivo procesado (.xlsx)")
+
 archivo_subido = st.file_uploader("Selecciona tu archivo generado desde la sección de procesamiento", type=["xlsx"])
 
-# 🚫 Si no se carga archivo, mostrar advertencia
-if archivo_subido is None:
-    st.warning("⚠️ Aún no se ha cargado el archivo procesado.")
-    st.stop()
-
-# ✅ Leer el archivo
 try:
-    df = pd.read_excel(archivo_subido)
-    st.success("✅ Archivo cargado correctamente.")
+    if archivo_subido is not None:
+        df = pd.read_excel(archivo_subido)
+        st.success("✅ Archivo cargado correctamente.")
+    else:
+        st.info("ℹ️ No se cargó archivo. Usando base por defecto.")
+
+        # Ruta absoluta del archivo por defecto
+        ruta_base = os.path.join(os.path.dirname(__file__), "..", "data", "Base_Procesada_Sudamerica.xlsx")
+        df = pd.read_excel(ruta_base)
+        st.success("✅ Archivo predeterminado cargado.")
 except Exception as e:
     st.error(f"❌ Error al leer el archivo: {e}")
     st.stop()
+
 
 # 🔍 Sidebar: Filtros
 st.sidebar.markdown("### 🎛️ Filtros")
